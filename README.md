@@ -40,7 +40,7 @@ Master branch currently supports Phoenix v1.0.3
 2. Install npm dependencies for ranch with `npm install`
     - on Debian/Ubuntu "deb.nodesource.com" works great
     - on a Mac, presumably you'll need to use homebrew
-3. Check system dependencies, run postgre dev script below
+3. Check system dependencies, run postgresql dev script below
 4. Start Phoenix endpoint with `mix phoenix.server` or  `iex -S mix phoenix.server` if you wish to have a console
 
 Now you can visit `127.0.0.1:4000` from your browser.
@@ -60,7 +60,7 @@ I try to keep up with th latest releases of our dependencies, namely:
 
 ## Create development database
 
-This will create a database "skeleton_dev" owned by "skeleton_dev_user" with password "skeleton_dev_pass". Tune this to yout needs.
+This will create a database "skeleton_dev" owned by "skeleton_dev_user" with password "skeleton_dev_pass". Tune this to your needs.
 
 ```
 CREATE ROLE skeleton_dev_user LOGIN
@@ -79,11 +79,11 @@ CREATE DATABASE skeleton_dev
 _Hint_: You may need to adjust de_DE.UTF-8 to your needs and use this Gist:
 (https://gist.github.com/ffmike/877447)
 
-This only creates the database. To install all required tables (users, userroles, user_userrole_map), run `mix ecto.migrate Repo`. This will also install a simple user with zsername "admin" with password "admin" and userroles ["admin"] that you can log in with to access /ADMIN/*.
+This only creates the database. To install all required tables (users, userroles, user_userrole_map), run `mix ecto.migrate Repo`. This will also install a simple user with username "admin" with password "admin" and userroles ["admin"] that you can log in with to access /ADMIN/*.
 
 # Deployment
 
-Hot code relaod is not covered here. See [https://exrm.readme.io/docs/upgradesdowngrades]
+Hot code reload is not covered here. See [https://exrm.readme.io/docs/upgradesdowngrades]
 
 ## simple (pack, copy, run)
 
@@ -97,8 +97,8 @@ This assumes a linux production machine with systemd as init system and a bash
 shell. Something like Debian 8/Jessie or Ubuntu 15.04/vivid (tested on both
 distributions). Also, this assumes
 
-- nxing 1.6+ being configured in /etc/nginx
-- postgre 9.3+
+- nginx 1.6+ being configured in /etc/nginx
+- postgresql 9.3+
 - memcached instance listening on 127.0.0.1:11211
 
 run `apt-get install nginx memcached postgresql-9.4` on Debian/Ubtuntu have a config as above
@@ -142,7 +142,7 @@ compile-release script to create.
 
 phoenix-skeleton depends on misc_random which compiles with a warning:
 `lib/random.ex:11: warning: erlang:now/0: Deprecated BIF"` on Erlang 18. This
-can safely be ignored as on Erlang 18 `:erlang.now/0` will not e used in favour of
+can safely be ignored as on Erlang 18 `:erlang.now/0` will not be used in favour of
 `:erlang.monotonic_time/0`
 
 At a certain point, I'll require Erlang 18 to get rid of this and always use
